@@ -107,6 +107,10 @@ class MyStack(TerraformStack):
                                                                                                     port=80
                                                                                                     )
 
+        TerraformOutput(self, "alb_dns",
+                        value=web_server_alb.dns_name
+                        )
+
 
 app = App()
 MyStack(app, "cdktf-aws-python-webserver")
